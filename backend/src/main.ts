@@ -40,9 +40,9 @@ async function bootstrap() {
     allowedHeaders: ['Content-Type', 'Accept', 'Authorization', 'X-Requested-With'],
   });
 
-  const port = configService.get<number>('PORT', 4000);
-  await app.listen(port);
-  logger.log(`🚀 AnyBuy Backend Server running on http://localhost:${port}/api`);
+  const port = process.env.PORT ? parseInt(process.env.PORT, 10) : configService.get<number>('PORT', 4000);
+  await app.listen(port, '0.0.0.0');
+  logger.log(`🚀 AnyBuy Backend Server running on port ${port} (/api)`);
   logger.log(`🔒 CORS configured for frontend at: ${frontendUrl}`);
 }
 
