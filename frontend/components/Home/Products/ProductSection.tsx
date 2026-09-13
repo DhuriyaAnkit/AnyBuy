@@ -22,14 +22,14 @@ export default function ProductSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-600">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-teal">
               <Sparkles className="h-3.5 w-3.5" />
               <span>Trending Marketplace Selection</span>
             </div>
-            <h2 className="mt-1 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-slate-900">
+            <h2 className="mt-1 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-brand-navy">
               Featured Products
             </h2>
-            <p className="mt-1 text-sm sm:text-base text-slate-500">
+            <p className="mt-1 text-sm sm:text-base text-brand-text-secondary">
               Handpicked products you&apos;ll love.
             </p>
           </div>
@@ -43,8 +43,8 @@ export default function ProductSection() {
                 onClick={() => setActiveTab(tab)}
                 className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition-all duration-150 ${
                   activeTab === tab
-                    ? "bg-slate-900 text-white shadow-xs"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    ? "bg-brand-teal text-white shadow-xs"
+                    : "bg-slate-100 text-slate-600 hover:bg-teal-50 hover:text-brand-teal"
                 }`}
               >
                 {tab}
@@ -60,7 +60,7 @@ export default function ProductSection() {
         <div className="mt-10 text-center">
           <Link
             href="#categories"
-            className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-6 py-3 text-sm font-bold text-slate-800 transition-all hover:bg-slate-100 hover:border-slate-300"
+            className="inline-flex items-center gap-2 rounded-xl border border-brand-teal bg-white px-6 py-3 text-sm font-semibold text-brand-teal shadow-xs transition-all hover:bg-teal-50"
           >
             <span>Load More Products</span>
             <ArrowRight className="h-4 w-4" />

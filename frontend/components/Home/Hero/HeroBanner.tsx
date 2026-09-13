@@ -5,12 +5,8 @@ import { Star, Flame, ArrowUpRight, CheckCircle } from "lucide-react";
 export default function HeroBanner() {
   return (
     <div className="relative w-full max-w-xl mx-auto lg:max-w-none">
-      {/* Background ambient decorative glow */}
-      <div className="absolute -top-10 -right-10 h-72 w-72 rounded-full bg-orange-400/20 blur-3xl" />
-      <div className="absolute -bottom-10 -left-10 h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" />
-
       {/* Main Collage Grid Card */}
-      <div className="relative rounded-3xl border border-slate-200/80 bg-white/80 p-4 sm:p-6 shadow-xl backdrop-blur-md">
+      <div className="relative rounded-2xl border border-[#E5E9ED] bg-white p-4 sm:p-6 shadow-sm">
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {/* Main Showcase Item (Electronics/Gadgets) */}
           <div className="group relative col-span-2 sm:col-span-1 h-56 sm:h-64 overflow-hidden rounded-2xl bg-slate-100 shadow-xs">
@@ -23,7 +19,7 @@ export default function HeroBanner() {
               sizes="(max-width: 768px) 100vw, 350px"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent p-4 flex flex-col justify-end">
-              <span className="inline-flex w-fit items-center gap-1 rounded-full bg-orange-500 px-2.5 py-0.5 text-[10px] font-extrabold text-white uppercase tracking-wider">
+              <span className="inline-flex w-fit items-center gap-1 rounded-full bg-brand-orange px-2.5 py-0.5 text-[10px] font-extrabold text-white uppercase tracking-wider">
                 Tech Deals
               </span>
               <p className="mt-1 text-sm sm:text-base font-bold text-white leading-snug">
@@ -44,13 +40,13 @@ export default function HeroBanner() {
               sizes="(max-width: 768px) 100vw, 350px"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent p-4 flex flex-col justify-end">
-              <span className="inline-flex w-fit items-center gap-1 rounded-full bg-slate-900/80 px-2.5 py-0.5 text-[10px] font-extrabold text-white uppercase tracking-wider backdrop-blur-xs">
+              <span className="inline-flex w-fit items-center gap-1 rounded-full bg-brand-teal-deep px-2.5 py-0.5 text-[10px] font-bold text-white uppercase tracking-wider">
                 New Season
               </span>
               <p className="mt-1 text-sm sm:text-base font-bold text-white leading-snug">
                 Trending Apparel
               </p>
-              <p className="text-xs text-slate-300">Over 20,000+ Styles</p>
+              <p className="text-xs text-teal-100">Over 20,000+ Styles</p>
             </div>
           </div>
         </div>
@@ -99,7 +95,7 @@ export default function HeroBanner() {
 
           <Link
             href="#categories"
-            className="inline-flex items-center gap-1 text-xs font-bold text-orange-600 hover:text-orange-700"
+            className="inline-flex items-center gap-1 text-xs font-bold text-brand-teal-deep hover:text-brand-teal transition-colors"
           >
             <span>See 20+ Categories</span>
             <ArrowUpRight className="h-3.5 w-3.5" />
@@ -107,24 +103,24 @@ export default function HeroBanner() {
         </div>
 
         {/* Floating Interactive Micro-Badge 1 */}
-        <div className="absolute -top-4 -left-4 hidden sm:flex items-center gap-2 rounded-2xl bg-white px-3.5 py-2 shadow-lg border border-slate-100">
-          <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600">
+        <div className="absolute -top-4 -left-4 hidden sm:flex items-center gap-2 rounded-xl bg-white px-3.5 py-2 shadow-sm border border-[#E5E9ED]">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-50 text-brand-teal">
             <CheckCircle className="h-4 w-4" />
           </span>
           <div className="text-left">
-            <p className="text-[11px] font-bold text-slate-900 leading-none">Verified Sellers</p>
+            <p className="text-[11px] font-bold text-brand-navy leading-none">Verified Sellers</p>
             <p className="text-[10px] text-slate-500 leading-tight">100% Guaranteed</p>
           </div>
         </div>
 
         {/* Floating Interactive Micro-Badge 2 */}
-        <div className="absolute -bottom-4 -right-4 hidden sm:flex items-center gap-2.5 rounded-2xl bg-slate-900 px-4 py-2.5 shadow-xl text-white">
-          <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-orange-500 text-white">
+        <div className="absolute -bottom-4 -right-4 hidden sm:flex items-center gap-2.5 rounded-xl bg-brand-navy px-4 py-2.5 shadow-md text-white border border-slate-800">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-orange text-white">
             <Flame className="h-4 w-4 fill-current" />
           </span>
           <div className="text-left">
             <p className="text-[11px] font-bold text-white leading-none">Daily Flash Drops</p>
-            <p className="text-[10px] text-orange-300 leading-tight">Save up to 70% Today</p>
+            <p className="text-[10px] text-orange-200 leading-tight">Save up to 70% Today</p>
           </div>
         </div>
       </div>

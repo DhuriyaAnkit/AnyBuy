@@ -58,7 +58,7 @@ export default function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-slate-400 hover:bg-orange-500 hover:text-white transition-all shadow-xs"
+                className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-slate-400 hover:bg-brand-teal hover:text-white transition-all shadow-xs"
                 aria-label="Follow AnyBuy on Instagram"
               >
                 <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
@@ -69,7 +69,7 @@ export default function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-slate-400 hover:bg-orange-500 hover:text-white transition-all shadow-xs"
+                className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-slate-400 hover:bg-brand-teal hover:text-white transition-all shadow-xs"
                 aria-label="Follow AnyBuy on Facebook"
               >
                 <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
@@ -80,7 +80,7 @@ export default function Footer() {
                 href="https://x.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-slate-400 hover:bg-orange-500 hover:text-white transition-all shadow-xs"
+                className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-slate-400 hover:bg-brand-teal hover:text-white transition-all shadow-xs"
                 aria-label="Follow AnyBuy on X (Twitter)"
               >
                 <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
@@ -91,7 +91,7 @@ export default function Footer() {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-slate-400 hover:bg-orange-500 hover:text-white transition-all shadow-xs"
+                className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-slate-400 hover:bg-brand-teal hover:text-white transition-all shadow-xs"
                 aria-label="Subscribe to AnyBuy on YouTube"
               >
                 <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
@@ -111,12 +111,12 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-4 text-slate-400">
             <span className="flex items-center gap-1.5">
-              <Lock className="h-3.5 w-3.5 text-emerald-400" />
+              <Lock className="h-3.5 w-3.5 text-teal-400" />
               <span>256-Bit SSL Encrypted</span>
             </span>
             <span>•</span>
             <span className="flex items-center gap-1.5">
-              <ShieldCheck className="h-3.5 w-3.5 text-orange-400" />
+              <ShieldCheck className="h-3.5 w-3.5 text-brand-orange" />
               <span>Money Back Guarantee</span>
             </span>
           </div>

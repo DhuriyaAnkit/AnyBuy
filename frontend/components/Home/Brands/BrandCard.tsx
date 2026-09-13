@@ -10,7 +10,7 @@ export default function BrandCard({ brand }: BrandCardProps) {
   return (
     <Link
       href="#featured"
-      className="group relative flex flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-4 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-md hover:shadow-orange-500/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+      className="group relative flex flex-col items-center justify-center rounded-2xl border border-[#E5E9ED] bg-white p-4 shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-teal/50 hover:shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
     >
       {/* Brand Visual / Logo */}
       <div className="relative h-16 w-16 sm:h-20 sm:w-20 overflow-hidden rounded-xl bg-slate-50 p-2 transition-transform duration-300 group-hover:scale-105">
@@ -24,7 +24,7 @@ export default function BrandCard({ brand }: BrandCardProps) {
       </div>
 
       {/* Brand Title */}
-      <h3 className="mt-3 text-xs sm:text-sm font-bold text-slate-800 transition-colors group-hover:text-orange-600">
+      <h3 className="mt-3 text-xs sm:text-sm font-bold text-brand-navy transition-colors group-hover:text-brand-teal">
         {brand.name}
       </h3>
 

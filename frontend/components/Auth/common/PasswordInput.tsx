@@ -39,8 +39,8 @@ export default function PasswordInput({
           type={showPassword ? 'text' : 'password'}
           className={`w-full rounded-xl border bg-white py-2.5 ${
             showIcon ? 'pl-10' : 'pl-3.5'
-          } pr-10 text-sm text-slate-900 placeholder:text-slate-400 transition-all duration-150 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20 ${
-            error ? 'border-red-400' : 'border-slate-200 hover:border-slate-300'
+          } pr-10 text-sm text-brand-navy placeholder:text-[#8A95A3] transition-all duration-150 focus:border-brand-teal focus:outline-none focus:ring-1 focus:ring-brand-teal/25 ${
+            error ? 'border-red-400' : 'border-[#E5E9ED] hover:border-slate-300'
           } ${className}`}
           {...props}
         />

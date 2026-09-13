@@ -10,21 +10,21 @@ export default function PopularBrands() {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-600">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-teal">
               <Sparkles className="h-3.5 w-3.5" />
               <span>Official Partners</span>
             </div>
-            <h2 className="mt-1 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-slate-900">
+            <h2 className="mt-1 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-brand-navy">
               Popular Brands
             </h2>
-            <p className="mt-1 text-sm sm:text-base text-slate-500">
+            <p className="mt-1 text-sm sm:text-base text-brand-text-secondary">
               Shop authentic goods from the world&apos;s leading brands.
             </p>
           </div>
 
           <Link
             href="#featured"
-            className="group inline-flex items-center gap-1.5 text-sm font-bold text-orange-600 hover:text-orange-700 transition-colors"
+            className="group inline-flex items-center gap-1.5 text-sm font-bold text-brand-teal-deep hover:text-brand-teal transition-colors"
           >
             <span>Explore All Brands</span>
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

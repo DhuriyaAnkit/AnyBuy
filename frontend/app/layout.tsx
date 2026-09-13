@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   title: "AnyBuy | Everything for Everyone - All-in-One Online Marketplace",
   description:
     "Discover millions of products, all in one place at AnyBuy. Enjoy fast delivery, secure payments, and unbeatable daily deals on Electronics, Fashion, Home, and more.",
+  icons: {
+    icon: "/images/anybuy-icon.png",
+    apple: "/images/anybuy-icon.png",
+  },
 };
 
 import { AuthProvider } from "@/lib/auth/AuthContext";

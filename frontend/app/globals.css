@@ -1,8 +1,44 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-teal: #087f83;
+  --color-brand-teal-hover: #0f9295;
+  --color-brand-teal-deep: #066468;
+  --color-brand-teal-dark: #066468;
+  --color-brand-teal-light: #ebf7f7;
+  --color-brand-teal-subtle: #f4fafa;
+
+  --color-brand-orange: #f97316;
+  --color-brand-orange-hover: #ea580c;
+  --color-brand-orange-dark: #ea580c;
+  --color-brand-orange-light: #fff7ed;
+
+  --color-brand-navy: #172033;
+  --color-brand-navy-light: #243048;
+  --color-brand-text-secondary: #5f6b7a;
+  --color-brand-text-muted: #8a95a3;
+  --color-brand-border: #e5e9ed;
+  --color-brand-background: #f8fafa;
+}
+
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #ffffff;
+  --foreground: #172033;
+
+  /* AnyBuy Centralized Brand Tokens */
+  --anybuy-teal: #087f83;
+  --anybuy-teal-hover: #0f9295;
+  --anybuy-teal-dark: #066468;
+  --anybuy-teal-light: #ebf7f7;
+  --anybuy-teal-subtle: #f4fafa;
+  --anybuy-orange: #f97316;
+  --anybuy-orange-dark: #ea580c;
+  --anybuy-orange-light: #fff7ed;
+  --anybuy-navy: #172033;
+  --anybuy-text-secondary: #5f6b7a;
+  --anybuy-text-muted: #8a95a3;
+  --anybuy-border: #e5e9ed;
+  --anybuy-background: #f8fafa;
 }
 
 body {

@@ -4,18 +4,18 @@ import { ShieldAlert } from "lucide-react";
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="py-12 sm:py-16 bg-slate-50/70 border-y border-slate-200/60">
+    <section id="features" className="py-12 sm:py-16 bg-[#F8FAFA] border-b border-[#E5E9ED]">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-teal mb-2">
             <ShieldAlert className="h-3.5 w-3.5" />
             <span>Customer First Guarantee</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-slate-900">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-brand-navy">
             Why Shop with AnyBuy?
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-500">
+          <p className="mt-2 text-sm sm:text-base text-brand-text-secondary">
             We are dedicated to delivering a seamless, dependable, and world-class marketplace experience.
           </p>
         </div>

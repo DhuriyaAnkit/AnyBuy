@@ -16,7 +16,7 @@ export default function FooterColumn({ section }: FooterColumnProps) {
           <li key={link.label}>
             <Link
               href={link.href}
-              className="text-slate-400 hover:text-orange-400 transition-colors duration-150 inline-block"
+              className="text-slate-400 hover:text-teal-300 transition-colors duration-150 inline-block"
             >
               {link.label}
             </Link>

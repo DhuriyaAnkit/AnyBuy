@@ -68,7 +68,7 @@ export default function SignInForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
-            className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-3.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all hover:border-slate-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
+            className="w-full rounded-xl border border-[#E5E9ED] bg-white py-2.5 pl-10 pr-3.5 text-sm text-brand-navy placeholder:text-[#8A95A3] transition-all hover:border-slate-300 focus:border-brand-teal focus:outline-none focus:ring-1 focus:ring-brand-teal/25"
           />
         </div>
       </div>
@@ -91,14 +91,14 @@ export default function SignInForm() {
             type="checkbox"
             checked={rememberMe}
             onChange={(e) => setRememberMe(e.target.checked)}
-            className="h-4 w-4 rounded border-slate-300 text-orange-600 focus:ring-orange-500"
+            className="h-4 w-4 rounded border-slate-300 text-brand-teal focus:ring-brand-teal"
           />
           <span className="font-medium text-slate-600">Remember me</span>
         </label>
 
         <Link
           href="/auth/forgot-password"
-          className="font-bold text-orange-600 hover:text-orange-700 transition-colors"
+          className="font-semibold text-brand-teal-deep hover:text-brand-teal transition-colors"
         >
           Forgot password?
         </Link>
@@ -115,7 +115,7 @@ export default function SignInForm() {
           Don&apos;t have an account?{' '}
           <Link
             href="/auth/sign-up"
-            className="font-bold text-orange-600 hover:text-orange-700 transition-colors"
+            className="font-bold text-brand-teal-deep hover:text-brand-teal transition-colors"
           >
             Create Account
           </Link>

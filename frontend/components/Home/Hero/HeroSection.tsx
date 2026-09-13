@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <section
       aria-label="Hero Introduction"
-      className="relative overflow-hidden bg-gradient-to-b from-orange-50/40 via-white to-slate-50 py-10 sm:py-16 lg:py-20 border-b border-slate-200/60"
+      className="relative overflow-hidden bg-white py-10 sm:py-16 lg:py-20 border-b border-[#E5E9ED]"
     >
       {/* Subtle grid background pattern */}
       <div

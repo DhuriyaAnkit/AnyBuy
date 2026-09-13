@@ -16,14 +16,11 @@ export default function Newsletter() {
   return (
     <section id="newsletter" className="py-12 sm:py-16 bg-slate-50">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 p-8 sm:p-12 lg:p-16 text-center text-white shadow-xl">
-          {/* Subtle background glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-orange-500/10 blur-3xl pointer-events-none" />
-
+        <div className="relative overflow-hidden rounded-2xl bg-brand-navy border border-slate-800 p-8 sm:p-12 text-center text-white shadow-md">
           <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
             {/* Icon */}
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-500 text-white shadow-lg shadow-orange-500/30 mb-6">
-              <Mail className="h-7 w-7" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-teal text-white shadow-xs mb-6">
+              <Mail className="h-6 w-6" />
             </div>
 
             {/* Heading */}
@@ -38,8 +35,8 @@ export default function Newsletter() {
 
             {/* Subscription Form */}
             {isSubmitted ? (
-              <div className="mt-8 flex items-center gap-2 rounded-2xl bg-emerald-500/20 border border-emerald-500/30 px-6 py-4 text-emerald-300 text-sm font-semibold animate-in fade-in zoom-in-95">
-                <CheckCircle2 className="h-5 w-5 text-emerald-400" />
+              <div className="mt-8 flex items-center gap-2 rounded-2xl bg-teal-500/20 border border-teal-500/30 px-6 py-4 text-teal-300 text-sm font-semibold animate-in fade-in zoom-in-95">
+                <CheckCircle2 className="h-5 w-5 text-teal-400" />
                 <span>Thank you for subscribing! Your $20 welcome voucher is on its way.</span>
               </div>
             ) : (
@@ -54,13 +51,13 @@ export default function Newsletter() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address"
-                    className="w-full rounded-xl border border-slate-700 bg-white/10 px-4 py-3.5 text-sm text-white placeholder:text-slate-400 focus:border-orange-500 focus:bg-white/15 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
+                    className="w-full rounded-xl border border-slate-700 bg-white/10 px-4 py-3.5 text-sm text-white placeholder:text-slate-400 focus:border-brand-teal focus:bg-white/15 focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="group flex w-full sm:w-auto flex-shrink-0 items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-orange-500/20 transition-all hover:bg-orange-600 active:scale-95 focus:outline-none"
+                  className="group flex w-full sm:w-auto flex-shrink-0 items-center justify-center gap-2 rounded-xl bg-brand-orange px-6 py-3.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-brand-orange-hover active:scale-98 focus:outline-none"
                 >
                   <span>Subscribe</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

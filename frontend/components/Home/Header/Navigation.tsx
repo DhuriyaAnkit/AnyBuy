@@ -25,21 +25,21 @@ export default function Navigation({ className = "" }: NavigationProps) {
           <Link
             key={link.label}
             href={link.href}
-            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-150 ${
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all duration-150 ${
               link.isHighlight
-                ? "bg-red-50 text-red-600 hover:bg-red-100 font-semibold"
+                ? "bg-orange-50 text-brand-orange hover:bg-orange-100/70 font-semibold"
                 : link.isPrimary
-                ? "bg-slate-100 text-slate-900 hover:bg-slate-200 font-semibold"
-                : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                ? "bg-teal-50/70 text-brand-teal-deep font-semibold"
+                : "text-brand-navy hover:text-brand-teal hover:bg-slate-50"
             }`}
           >
             <Icon
               className={`h-4 w-4 ${
                 link.isHighlight
-                  ? "text-red-500 animate-pulse"
+                  ? "text-brand-orange"
                   : link.isPrimary
-                  ? "text-slate-700"
-                  : "text-slate-400"
+                  ? "text-brand-teal"
+                  : "text-slate-400 group-hover:text-brand-teal"
               }`}
             />
             <span>{link.label}</span>
@@ -49,11 +49,11 @@ export default function Navigation({ className = "" }: NavigationProps) {
 
       <div className="ml-auto hidden xl:flex items-center gap-4 text-xs font-semibold text-slate-500">
         <span className="flex items-center gap-1">
-          <span className="h-2 w-2 rounded-full bg-emerald-500" />
+          <span className="h-2 w-2 rounded-full bg-brand-teal" />
           Free express delivery on orders over $49
         </span>
         <span className="text-slate-300">|</span>
-        <Link href="#newsletter" className="hover:text-orange-600 transition-colors">
+        <Link href="#newsletter" className="hover:text-brand-teal transition-colors">
           Get $20 Off Coupon
         </Link>
       </div>

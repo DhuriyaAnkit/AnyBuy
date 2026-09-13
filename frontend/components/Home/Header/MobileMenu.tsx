@@ -65,15 +65,15 @@ export default function MobileMenu() {
             </div>
 
             {/* User Quick Bar */}
-            <div className="mt-5 rounded-2xl bg-slate-50 p-4 border border-slate-100">
+            <div className="mt-5 rounded-2xl bg-slate-50 p-4 border border-[#E5E9ED]">
               {isAuthenticated && user ? (
                 <div>
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-white font-bold text-sm shadow-xs">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-teal text-white font-bold text-sm shadow-xs">
                       {user.name.slice(0, 2).toUpperCase()}
                     </div>
                     <div className="overflow-hidden">
-                      <p className="text-sm font-bold text-slate-900 truncate">{user.name}</p>
+                      <p className="text-sm font-bold text-brand-navy truncate">{user.name}</p>
                       <p className="text-xs text-slate-500 truncate">{user.email}</p>
                     </div>
                   </div>
@@ -89,11 +89,11 @@ export default function MobileMenu() {
               ) : (
                 <div>
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-white shadow-xs">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-teal text-white shadow-xs">
                       <UserIcon className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-slate-900">Welcome, Shopper!</p>
+                      <p className="text-sm font-bold text-brand-navy">Welcome, Shopper!</p>
                       <p className="text-xs text-slate-500">Sign in for exclusive deals</p>
                     </div>
                   </div>
@@ -101,14 +101,14 @@ export default function MobileMenu() {
                     <Link
                       href="/auth/sign-in"
                       onClick={() => setIsOpen(false)}
-                      className="flex-1 rounded-xl bg-orange-500 py-2 text-center text-xs font-bold text-white shadow-xs hover:bg-orange-600"
+                      className="flex-1 rounded-xl bg-brand-orange py-2 text-center text-xs font-bold text-white shadow-xs hover:bg-brand-orange-hover"
                     >
                       Sign In
                     </Link>
                     <Link
                       href="/auth/sign-up"
                       onClick={() => setIsOpen(false)}
-                      className="flex-1 rounded-xl border border-slate-200 bg-white py-2 text-center text-xs font-bold text-slate-700 hover:bg-slate-50"
+                      className="flex-1 rounded-xl border border-brand-teal bg-white py-2 text-center text-xs font-semibold text-brand-teal hover:bg-teal-50"
                     >
                       Join AnyBuy
                     </Link>
@@ -129,17 +129,17 @@ export default function MobileMenu() {
                     key={link.label}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-orange-600 transition-colors"
+                    className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50/70 hover:text-brand-teal transition-colors"
                   >
                     <div className="flex items-center gap-3">
                       <Icon
                         className={`h-4 w-4 ${
-                          link.isHighlight ? "text-red-500" : "text-slate-400"
+                          link.isHighlight ? "text-brand-orange" : "text-slate-400"
                         }`}
                       />
                       <span>{link.label}</span>
                     </div>
-                    <ChevronRight className="h-4 w-4 text-slate-300" />
+                    <span className="text-slate-300">→</span>
                   </Link>
                 );
               })}

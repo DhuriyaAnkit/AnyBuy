@@ -1,54 +1,121 @@
 import Link from "next/link";
-import { ShoppingBag } from "lucide-react";
+import Image from "next/image";
 
-interface LogoProps {
+export interface LogoProps {
+  /**
+   * Layout/style variant:
+   * - 'default': Horizontal layout with mascot + ANYBUY + tagline
+   * - 'compact': Horizontal layout with mascot + ANYBUY (tagline hidden)
+   * - 'stacked': Centered vertical layout with mascot on top, brand below
+   * - 'light': Optimized for dark backgrounds (white text)
+   * - 'dark': Optimized for light backgrounds (default teal/slate text)
+   */
+  variant?: "default" | "compact" | "stacked" | "light" | "dark";
+  /** Whether to show the "Your Everything Marketplace" tagline (defaults to true for default/stacked, false for compact) */
   showTagline?: boolean;
+  /** Size preset */
+  size?: "sm" | "md" | "lg";
+  /** Additional CSS classes */
   className?: string;
-  variant?: "light" | "dark";
+  /** Optional link destination, set to null or empty string to render as a plain div */
+  href?: string | null;
+  /** Priority loading for above-the-fold header images */
+  priority?: boolean;
 }
 
 export default function Logo({
-  showTagline = true,
+  variant = "default",
+  showTagline,
+  size = "md",
   className = "",
-  variant = "dark",
+  href = "/",
+  priority = true,
 }: LogoProps) {
   const isLight = variant === "light";
+  const isCompact = variant === "compact";
+  const isStacked = variant === "stacked";
 
-  return (
-    <Link
-      href="/"
-      className={`group inline-flex items-center gap-2.5 transition-transform duration-200 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-lg p-0.5 ${className}`}
-      aria-label="AnyBuy - Back to Homepage"
+  // Tagline is shown by default unless explicitly disabled or if compact variant is chosen
+  const shouldShowTagline = showTagline ?? (!isCompact);
+
+  // Dimension mapping based on size preset
+  const dimensions = {
+    sm: {
+      mascotWidth: 32,
+      mascotHeight: 34,
+      titleSize: "text-lg",
+      taglineSize: "text-[9px]",
+      gap: "gap-2",
+    },
+    md: {
+      mascotWidth: 42,
+      mascotHeight: 45,
+      titleSize: "text-xl sm:text-2xl",
+      taglineSize: "text-[10px] sm:text-[11px]",
+      gap: "gap-2.5",
+    },
+    lg: {
+      mascotWidth: 64,
+      mascotHeight: 68,
+      titleSize: "text-2xl sm:text-3xl",
+      taglineSize: "text-xs sm:text-sm",
+      gap: "gap-3",
+    },
+  }[size];
+
+  const content = (
+    <div
+      className={`inline-flex items-center select-none transition-transform duration-200 active:scale-[0.98] ${
+        isStacked ? "flex-col text-center" : "flex-row"
+      } ${dimensions.gap} ${className}`}
     >
-      <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 shadow-md shadow-orange-500/20 transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-orange-500/30">
-        <ShoppingBag className="h-5 w-5 text-white" />
-        <span className="absolute -bottom-1 -right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-slate-900 ring-2 ring-white">
-          <span className="h-1.5 w-1.5 rounded-full bg-orange-400 animate-pulse" />
-        </span>
+      {/* Official AnyBuy Shopping-Bag Mascot */}
+      <div className="relative shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+        <Image
+          src="/images/anybuy-icon.png"
+          alt="AnyBuy - Your Everything Marketplace"
+          width={dimensions.mascotWidth}
+          height={dimensions.mascotHeight}
+          priority={priority}
+          className="object-contain drop-shadow-xs"
+        />
       </div>
-      <div className="flex flex-col">
-        <div className="flex items-center">
+
+      {/* Brand Typography */}
+      <div className={`flex flex-col justify-center ${isStacked ? "items-center mt-1" : "items-start"}`}>
+        <span
+          className={`font-black tracking-tight leading-none uppercase ${dimensions.titleSize} ${
+            isLight ? "text-white" : "text-brand-teal"
+          }`}
+          style={{ fontFamily: "inherit" }}
+        >
+          ANY<span className={isLight ? "text-teal-400" : "text-brand-teal-deep"}>BUY</span>
+        </span>
+
+        {shouldShowTagline && (
           <span
-            className={`text-2xl font-black tracking-tight ${
-              isLight ? "text-white" : "text-slate-900"
-            }`}
-          >
-            Any<span className="text-orange-500">Buy</span>
-          </span>
-          <span className="ml-1 rounded bg-orange-100 px-1.5 py-0.5 text-[10px] font-bold tracking-wide text-orange-600 uppercase dark:bg-orange-950/40 dark:text-orange-400">
-            Market
-          </span>
-        </div>
-        {showTagline && (
-          <span
-            className={`text-[11px] font-medium tracking-wide ${
+            className={`font-medium tracking-normal leading-tight mt-0.5 ${dimensions.taglineSize} ${
               isLight ? "text-slate-400" : "text-slate-500"
             }`}
           >
-            Everything for Everyone.
+            Your Everything Marketplace
           </span>
         )}
       </div>
+    </div>
+  );
+
+  if (!href) {
+    return content;
+  }
+
+  return (
+    <Link
+      href={href}
+      className="group inline-flex items-center rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal p-0.5"
+      aria-label="AnyBuy - Your Everything Marketplace"
+    >
+      {content}
     </Link>
   );
 }

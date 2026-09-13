@@ -11,7 +11,7 @@ import Footer from "./Footer/Footer";
 
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900 selection:bg-orange-500 selection:text-white">
+    <div className="flex min-h-screen flex-col bg-slate-50/70 text-brand-navy selection:bg-brand-teal selection:text-white">
       <Header />
 
       <main className="flex-1">

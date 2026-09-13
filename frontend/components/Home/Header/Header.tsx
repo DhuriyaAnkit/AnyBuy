@@ -7,7 +7,7 @@ import AnnouncementTicker from "./AnnouncementTicker";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-shadow duration-200">
+    <header className="sticky top-0 z-40 w-full border-b border-[#E5E9ED] bg-white transition-shadow duration-200">
       {/* Top Banner / Announcement Bar with Infinite Ticker */}
       <AnnouncementTicker />
 
@@ -37,7 +37,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Secondary Category Navigation */}
-        <div className="border-t border-slate-100 mt-2.5 pt-1">
+        <div className="border-t border-[#E5E9ED] mt-2.5 pt-1">
           <Navigation />
         </div>
       </div>

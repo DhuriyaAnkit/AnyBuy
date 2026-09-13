@@ -56,7 +56,7 @@ export default function SignUpForm() {
   if (isSuccess) {
     return (
       <div className="text-center py-4 space-y-4 animate-in fade-in zoom-in-95">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-600 shadow-xs">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-50 text-brand-teal border border-teal-100/80 shadow-xs">
           <CheckCircle2 className="h-8 w-8" />
         </div>
         <div className="space-y-1">
@@ -68,7 +68,7 @@ export default function SignUpForm() {
         <div className="pt-3">
           <Link
             href="/auth/sign-in"
-            className="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-slate-900 py-3 text-sm font-bold text-white hover:bg-slate-800 transition-colors"
+            className="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-brand-orange py-3 text-sm font-bold text-white hover:bg-brand-orange-hover shadow-xs transition-colors"
           >
             <span>Go to Sign In</span>
             <ArrowRight className="h-4 w-4" />
@@ -98,7 +98,7 @@ export default function SignUpForm() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="John Doe"
-            className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-3.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all hover:border-slate-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
+            className="w-full rounded-xl border border-[#E5E9ED] bg-white py-2.5 pl-10 pr-3.5 text-sm text-brand-navy placeholder:text-[#8A95A3] transition-all hover:border-slate-300 focus:border-brand-teal focus:outline-none focus:ring-1 focus:ring-brand-teal/25"
           />
         </div>
       </div>
@@ -120,7 +120,7 @@ export default function SignUpForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
-            className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-3.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all hover:border-slate-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
+            className="w-full rounded-xl border border-[#E5E9ED] bg-white py-2.5 pl-10 pr-3.5 text-sm text-brand-navy placeholder:text-[#8A95A3] transition-all hover:border-slate-300 focus:border-brand-teal focus:outline-none focus:ring-1 focus:ring-brand-teal/25"
           />
         </div>
       </div>
@@ -158,7 +158,7 @@ export default function SignUpForm() {
           Already have an account?{' '}
           <Link
             href="/auth/sign-in"
-            className="font-bold text-orange-600 hover:text-orange-700 transition-colors"
+            className="font-bold text-brand-teal-deep hover:text-brand-teal transition-colors"
           >
             Sign In
           </Link>

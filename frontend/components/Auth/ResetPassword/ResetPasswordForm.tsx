@@ -62,7 +62,7 @@ export default function ResetPasswordForm() {
   if (isSuccess) {
     return (
       <div className="text-center py-4 space-y-4 animate-in fade-in zoom-in-95">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-600 shadow-xs">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-50 text-brand-teal border border-teal-100/80 shadow-xs">
           <CheckCircle2 className="h-8 w-8" />
         </div>
         <div className="space-y-1">
@@ -74,7 +74,7 @@ export default function ResetPasswordForm() {
         <div className="pt-3">
           <Link
             href="/auth/sign-in"
-            className="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-orange-500 py-3 text-sm font-bold text-white hover:bg-orange-600 transition-colors shadow-md shadow-orange-500/25"
+            className="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-brand-orange py-3 text-sm font-bold text-white hover:bg-brand-orange-hover transition-colors shadow-xs"
           >
             <span>Sign In to AnyBuy</span>
             <ArrowRight className="h-4 w-4" />
@@ -134,7 +134,7 @@ export default function ResetPasswordForm() {
         <div className="text-center pt-3 border-t border-slate-100">
           <Link
             href="/auth/sign-in"
-            className="text-xs font-bold text-slate-600 hover:text-orange-600 transition-colors"
+            className="text-xs font-bold text-slate-600 hover:text-brand-teal transition-colors"
           >
             Back to Sign In
           </Link>
