@@ -295,10 +295,11 @@ export class AuthService {
       });
 
       const isSecure = this.configService.get<string>('COOKIE_SECURE') === 'true';
+      const sameSite = (this.configService.get<string>('COOKIE_SAME_SITE') || (isSecure ? 'none' : 'lax')) as 'lax' | 'strict' | 'none';
       res.cookie('access_token', newAccessToken, {
         httpOnly: true,
         secure: isSecure,
-        sameSite: 'lax',
+        sameSite,
         maxAge: 15 * 60 * 1000,
         path: '/',
       });
@@ -315,11 +316,12 @@ export class AuthService {
 
   private setAuthCookies(res: Response, accessToken: string, refreshToken: string, refreshDays: number) {
     const isSecure = this.configService.get<string>('COOKIE_SECURE') === 'true';
+    const sameSite = (this.configService.get<string>('COOKIE_SAME_SITE') || (isSecure ? 'none' : 'lax')) as 'lax' | 'strict' | 'none';
 
     res.cookie('access_token', accessToken, {
       httpOnly: true,
       secure: isSecure,
-      sameSite: 'lax',
+      sameSite,
       maxAge: 15 * 60 * 1000, // 15 mins
       path: '/',
     });
@@ -327,7 +329,7 @@ export class AuthService {
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
       secure: isSecure,
-      sameSite: 'lax',
+      sameSite,
       maxAge: refreshDays * 24 * 60 * 60 * 1000,
       path: '/',
     });
@@ -335,18 +337,19 @@ export class AuthService {
 
   private clearAuthCookies(res: Response) {
     const isSecure = this.configService.get<string>('COOKIE_SECURE') === 'true';
+    const sameSite = (this.configService.get<string>('COOKIE_SAME_SITE') || (isSecure ? 'none' : 'lax')) as 'lax' | 'strict' | 'none';
 
     res.clearCookie('access_token', {
       httpOnly: true,
       secure: isSecure,
-      sameSite: 'lax',
+      sameSite,
       path: '/',
     });
 
     res.clearCookie('refresh_token', {
       httpOnly: true,
       secure: isSecure,
-      sameSite: 'lax',
+      sameSite,
       path: '/',
     });
   }
