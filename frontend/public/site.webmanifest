@@ -1,0 +1,21 @@
+{
+  "name": "AnyBuy - Your Everything Marketplace",
+  "short_name": "AnyBuy",
+  "description": "Discover millions of products, all in one place. Fast delivery, secure payments, and daily deals.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#087f83",
+  "icons": [
+    {
+      "src": "/images/anybuy-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/anybuy-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
