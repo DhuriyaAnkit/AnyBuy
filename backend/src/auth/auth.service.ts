@@ -294,12 +294,10 @@ export class AuthService {
         role: user.role,
       });
 
-      const isSecure = this.configService.get<string>('COOKIE_SECURE') === 'true';
-      const sameSite = (this.configService.get<string>('COOKIE_SAME_SITE') || (isSecure ? 'none' : 'lax')) as 'lax' | 'strict' | 'none';
+      const cookieOptions = this.getCookieOptions();
       res.cookie('access_token', newAccessToken, {
         httpOnly: true,
-        secure: isSecure,
-        sameSite,
+        ...cookieOptions,
         maxAge: 15 * 60 * 1000,
         path: '/',
       });
@@ -314,42 +312,58 @@ export class AuthService {
     }
   }
 
+  private getCookieOptions(): { secure: boolean; sameSite: 'lax' | 'strict' | 'none' } {
+    const isProduction =
+      process.env.NODE_ENV === 'production' ||
+      !!process.env.RENDER;
+
+    const cookieSecureEnv = this.configService.get<string>('COOKIE_SECURE');
+    const isSecure = cookieSecureEnv !== undefined ? cookieSecureEnv === 'true' : isProduction;
+
+    // In production or when secure is enabled across domains (e.g. Vercel <-> Render),
+    // SameSite MUST be 'none' for cookies to be accepted across different origins.
+    const defaultSameSite: 'lax' | 'strict' | 'none' = isSecure ? 'none' : 'lax';
+    const sameSite = (this.configService.get<string>('COOKIE_SAME_SITE') || defaultSameSite) as
+      | 'lax'
+      | 'strict'
+      | 'none';
+
+    return {
+      secure: isSecure,
+      sameSite,
+    };
+  }
+
   private setAuthCookies(res: Response, accessToken: string, refreshToken: string, refreshDays: number) {
-    const isSecure = this.configService.get<string>('COOKIE_SECURE') === 'true';
-    const sameSite = (this.configService.get<string>('COOKIE_SAME_SITE') || (isSecure ? 'none' : 'lax')) as 'lax' | 'strict' | 'none';
+    const cookieOptions = this.getCookieOptions();
 
     res.cookie('access_token', accessToken, {
       httpOnly: true,
-      secure: isSecure,
-      sameSite,
+      ...cookieOptions,
       maxAge: 15 * 60 * 1000, // 15 mins
       path: '/',
     });
 
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
-      secure: isSecure,
-      sameSite,
+      ...cookieOptions,
       maxAge: refreshDays * 24 * 60 * 60 * 1000,
       path: '/',
     });
   }
 
   private clearAuthCookies(res: Response) {
-    const isSecure = this.configService.get<string>('COOKIE_SECURE') === 'true';
-    const sameSite = (this.configService.get<string>('COOKIE_SAME_SITE') || (isSecure ? 'none' : 'lax')) as 'lax' | 'strict' | 'none';
+    const cookieOptions = this.getCookieOptions();
 
     res.clearCookie('access_token', {
       httpOnly: true,
-      secure: isSecure,
-      sameSite,
+      ...cookieOptions,
       path: '/',
     });
 
     res.clearCookie('refresh_token', {
       httpOnly: true,
-      secure: isSecure,
-      sameSite,
+      ...cookieOptions,
       path: '/',
     });
   }

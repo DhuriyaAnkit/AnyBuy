@@ -23,7 +23,30 @@ export class ApiException extends Error {
 
 class ApiClient {
   private get baseUrl(): string {
-    return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+    let url = process.env.NEXT_PUBLIC_API_URL;
+
+    // If NEXT_PUBLIC_API_URL is omitted or unset in a production browser environment,
+    // automatically fallback to the live Render backend instead of localhost:4000
+    if (!url && typeof window !== 'undefined') {
+      const hostname = window.location.hostname;
+      if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
+        url = 'https://anybuy-api.onrender.com/api';
+      }
+    }
+
+    if (!url) {
+      url = 'http://localhost:4000/api';
+    }
+
+    // Normalize URL: trim whitespace and remove trailing slashes
+    url = url.trim().replace(/\/+$/, '');
+
+    // Ensure /api prefix is present
+    if (!url.endsWith('/api') && !url.includes('/api/')) {
+      url = `${url}/api`;
+    }
+
+    return url;
   }
 
   private async request<T>(
@@ -62,12 +85,27 @@ class ApiClient {
       if (err instanceof ApiException) {
         throw err;
       }
+
+      const rawErrorMsg = err instanceof Error ? err.message : String(err);
+      console.error(`[AnyBuy API Error] Call to ${url} failed:`, err);
+
+      let userMessage = 'Unable to connect to the backend server. Please check your internet connection.';
+
+      // When browser blocks CORS, server is asleep on Render, or connection drops:
+      if (
+        rawErrorMsg.includes('Failed to fetch') ||
+        rawErrorMsg.includes('NetworkError') ||
+        rawErrorMsg.includes('Load failed')
+      ) {
+        userMessage =
+          'Unable to reach the AnyBuy server. Note: On the free hosting tier (Render), the backend spins down after inactivity and takes ~40 seconds to wake up. Please wait a few seconds and try again.';
+      } else if (rawErrorMsg) {
+        userMessage = rawErrorMsg;
+      }
+
       throw new ApiException({
         statusCode: 0,
-        message:
-          err instanceof Error
-            ? err.message
-            : 'Unable to connect to the backend server. Please check your connection.',
+        message: userMessage,
       });
     }
   }
